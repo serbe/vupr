@@ -24,7 +24,7 @@
         <input class="input is-expanded" type="search" placeholder="Поиск" v-model="query" autofocus>
       </p>
       <!-- <vue-pagination v-if="pagination" :page="page" :allElems="all" :perPage="perPage" @pagination="filter"></vue-pagination> -->
-      <table class="table center-table">
+      <table class="table is-narrow center-table">
         <thead>
           <tr>
             <th>#</th>
@@ -33,7 +33,6 @@
             <th>Response</th>
             <th>Work</th>
             <th>Anon</th>
-            <th>Checks</th>
             <th>Create</th>
             <th>Update</th>
           </tr>
@@ -46,7 +45,6 @@
               <td>{{ proxy.response }}</td>
               <td>{{ proxy.work }}</td>
               <td>{{ proxy.anon }}</td>
-              <td>{{ proxy.checks }}</td>
               <td>{{ proxy.create }}</td>
               <td>{{ proxy.update }}</td>
             </tr>

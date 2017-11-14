@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/components/Home';
 import All from '@/components/All';
+import Work from '@/components/Work';
 import Login from '@/components/Login';
 import NotFoundComponent from '@/components/NotFoundComponent';
 
@@ -23,6 +24,12 @@ export default new Router({
       name: 'all',
       component: All,
       meta: { requiresAuth: true, title: 'All' },
+    },
+    {
+      path: '/work',
+      name: 'work',
+      component: Work,
+      meta: { requiresAuth: true, title: 'Work' },
     },
     {
       path: '/login',

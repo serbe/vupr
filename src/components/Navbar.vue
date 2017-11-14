@@ -23,7 +23,13 @@
           </template>
         </div>
         <div class="navbar-end">
-          <vue-button v-if="user.authenticated" class="navbar-item" text="Выход" color="info" @click="logout"></vue-button>
+          <div class="navbar-item">
+            <div class="field">
+              <p class="control">
+                <a v-if="user.authenticated" class="button navbar-item is-info" @click="logout">Выход</a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </nav>

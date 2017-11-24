@@ -31,54 +31,54 @@
 </template>
 
 <script>
-import auth from '@/auth';
-import axios from 'axios';
+import auth from '@/auth'
+import axios from 'axios'
 
 export default {
   name: 'login',
-  data() {
+  data () {
     return {
       name: '',
       pass: '',
-      error: false,
-    };
+      error: false
+    }
   },
   methods: {
-    login() {
-      const router = this.$router;
-      let url = '/login';
+    login () {
+      const router = this.$router
+      let url = '/login'
       const data = {
         username: this.name,
-        password: this.pass,
-      };
+        password: this.pass
+      }
       if (process.env.NODE_ENV === 'development') {
-        url = 'http://localhost:9090/login';
+        url = 'http://localhost:9090/login'
       }
       axios({
         url,
         method: 'POST',
-        data,
+        data
       })
         .then((r) => {
           if (r.data.token && r.data.token !== '') {
-            auth.login(r.data.token);
-            router.push({ name: 'home' });
+            auth.login(r.data.token)
+            router.push({ name: 'home' })
           }
         })
         .catch(() => {
           // console.log(error);
-        });
+        })
     },
-    close() {
-      this.$router.push('/');
+    close () {
+      this.$router.push('/')
     },
-    onKeyup(event) {
+    onKeyup (event) {
       if (event.key === 'Enter') {
-        this.login();
+        this.login()
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style>

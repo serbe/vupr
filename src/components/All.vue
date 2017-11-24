@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import request from '@/request';
+import request from '@/request'
 
 export default {
   name: 'all',
@@ -67,41 +67,41 @@ export default {
   //   'vue-pagination': pagination,
   //   'vue-cell': cell,
   // },
-  data() {
+  data () {
     return {
       query: '',
       page: 1,
       perPage: 500,
       fetched: false,
-      list: [],
-    };
+      list: []
+    }
   },
-  created() {
-    this.fetchData();
+  created () {
+    this.fetchData()
   },
   watch: {
-    $route() {
-      this.fetchData();
-    },
+    $route () {
+      this.fetchData()
+    }
     // $router() {
     //   console.log(this.$route.params)
     // }
   },
   methods: {
-    fetchData() {
+    fetchData () {
       if (!this.fetched) {
         request({
           url: 'proxies/all',
-          method: 'GET',
+          method: 'GET'
         })
           .then((r) => {
-            this.list = this.createList(r.data.proxies);
-            this.fetched = true;
-          });
+            this.list = this.createList(r.data.proxies)
+            this.fetched = true
+          })
       }
     },
-    createList(proxies) {
-      let list = [];
+    createList (proxies) {
+      let list = []
       if (proxies) {
         list = proxies.map((proxy) => {
           const str = [
@@ -112,17 +112,17 @@ export default {
             proxy.anon,
             proxy.checks,
             proxy.create,
-            proxy.update,
-          ];
-          const nc = proxy;
-          nc.str = str.join(' ').toLowerCase();
-          return nc;
-        });
+            proxy.update
+          ]
+          const nc = proxy
+          nc.str = str.join(' ').toLowerCase()
+          return nc
+        })
       }
-      return list;
-    },
-  },
-};
+      return list
+    }
+  }
+}
 </script>
 
 <style scoped>

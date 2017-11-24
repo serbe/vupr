@@ -1,26 +1,26 @@
 export default {
   user: {
-    authenticated: false,
+    authenticated: false
   },
-  getToken() {
-    return localStorage.getItem('token');
+  getToken () {
+    return localStorage.getItem('token')
   },
-  login(token) {
-    localStorage.setItem('token', token);
-    this.user.authenticated = true;
+  login (token) {
+    localStorage.setItem('token', token)
+    this.user.authenticated = true
   },
-  logout() {
-    localStorage.removeItem('token');
-    this.user.authenticated = false;
+  logout () {
+    localStorage.removeItem('token')
+    this.user.authenticated = false
   },
-  checkAuth() {
-    const token = this.getToken();
-    this.user.authenticated = !!token;
+  checkAuth () {
+    const token = this.getToken()
+    this.user.authenticated = !!token
   },
-  isAuth() {
-    return !!this.getToken();
+  isAuth () {
+    return !!this.getToken()
   },
-  getAuthHeader() {
-    return `Bearer ${this.getToken()}`;
-  },
-};
+  getAuthHeader () {
+    return `Bearer ${this.getToken()}`
+  }
+}

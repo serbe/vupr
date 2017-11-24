@@ -37,30 +37,30 @@
 </template>
 
 <script>
-import auth from '@/auth';
+import auth from '@/auth'
 
 export default {
   name: 'vue-navigation',
-  data() {
+  data () {
     return {
       active: '',
       tabShow: false,
-      user: auth.user,
-    };
+      user: auth.user
+    }
   },
   methods: {
-    logout() {
-      auth.logout();
-      this.$router.push('/login');
+    logout () {
+      auth.logout()
+      this.$router.push('/login')
     },
-    toggle() {
-      this.active = this.active === '' ? 'is-active' : '';
+    toggle () {
+      this.active = this.active === '' ? 'is-active' : ''
     },
-    toggleTab() {
-      this.tabShow = !this.tabShow;
-    },
-  },
-};
+    toggleTab () {
+      this.tabShow = !this.tabShow
+    }
+  }
+}
 </script>
 
 <style scoped>

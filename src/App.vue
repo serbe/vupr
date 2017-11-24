@@ -13,16 +13,16 @@
 </template>
 
 <script>
-import vnavbar from '@/components/Navbar';
+import vnavbar from '@/components/Navbar'
 
 export default {
   name: 'app',
   components: {
-    'vue-navbar': vnavbar,
-  },
-};
+    'vue-navbar': vnavbar
+  }
+}
 </script>
 
 <style>
-@import "~bulma/css/bulma.css";
+
 </style>

@@ -27,27 +27,27 @@
       <table class="table is-narrow center-table">
         <thead>
           <tr>
-            <th>#</th>
-            <th>Host</th>
-            <th>Port</th>
-            <th>Response</th>
-            <th>Work</th>
-            <th>Anon</th>
-            <th>Create</th>
-            <th>Update</th>
+            <th class="has-text-centered">#</th>
+            <th class="has-text-centered">Host</th>
+            <th class="has-text-centered">Port</th>
+            <th class="has-text-centered">Response</th>
+            <th class="has-text-centered">Work</th>
+            <th class="has-text-centered">Anon</th>
+            <th class="has-text-centered">Create</th>
+            <th class="has-text-centered">Update</th>
           </tr>
         </thead>
         <tbody>
-            <tr v-for="(proxy, key) in list" v-bind:key="key">
-              <td>{{ key }}</td>
-              <td>{{ proxy.host }}</td>
-              <td>{{ proxy.port }}</td>
-              <td>{{ proxy.response }}</td>
-              <td>{{ proxy.work }}</td>
-              <td>{{ proxy.anon }}</td>
-              <td>{{ proxy.create }}</td>
-              <td>{{ proxy.update }}</td>
-            </tr>
+          <tr v-for="(proxy, key) in list" v-bind:key="key">
+            <td class="has-text-centered">{{ key }}</td>
+            <td class="has-text-centered">{{ proxy.host }}</td>
+            <td class="has-text-centered">{{ proxy.port }}</td>
+            <td class="has-text-right">{{ proxy.response }}</td>
+            <td class="has-text-centered">{{ proxy.work }}</td>
+            <td class="has-text-centered">{{ proxy.anon }}</td>
+            <td class="has-text-centered">{{ proxy.create }}</td>
+            <td class="has-text-centered">{{ proxy.update }}</td>
+          </tr>
         </tbody>
       </table>
       <!-- <vue-pagination v-if="pagination" :page="page" :allElems="all" :perPage="perPage" @pagination="filter"></vue-pagination> -->
@@ -113,11 +113,25 @@ export default {
             proxy.update
           ]
           const nc = proxy
+          nc.response = this.responseStr(nc.response)
           nc.str = str.join(' ').toLowerCase()
           return nc
         })
       }
       return list
+    },
+    responseStr (r) {
+      let s = ''
+      if (r > 1000000000) {
+        s = (r / 1000000000).toFixed(2) + 's'
+      } else if (r > 1000000) {
+        s = (r / 1000000).toFixed(0) + 'ms'
+      } else if (r > 1000) {
+        s = (r / 1000).toFixed(0) + 'µs'
+      } else {
+        s = r + 'ns'
+      }
+      return s
     }
   }
 }

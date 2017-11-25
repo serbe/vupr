@@ -1,70 +1,26 @@
 <template>
   <div class="container">
-    <div>
-      <nav class="level is-mobile">
-        <div class="level-left">
-          <p class="level-item">
-            <!-- <a class="button" :href="'/' + this.name + '/0'">Добавить</a> -->
-          </p>
-        </div>
-        <div class="level-rigth">
-          <p class="level-item">
-            <span class="select">
-              <select v-model="perPage">
-                <option>100</option>
-                <option>200</option>
-                <option>500</option>
-                <option>1000</option>
-              </select>
-            </span>
-          </p>
-        </div>
-      </nav>
-      <p class="control mb1">
-        <input class="input is-expanded" type="search" placeholder="Поиск" v-model="query" autofocus>
-      </p>
-      <!-- <vue-pagination v-if="pagination" :page="page" :allElems="all" :perPage="perPage" @pagination="filter"></vue-pagination> -->
-      <table class="table is-narrow center-table">
-        <thead>
-          <tr>
-            <th class="has-text-centered">#</th>
-            <th class="has-text-centered">Host</th>
-            <th class="has-text-centered">Port</th>
-            <th class="has-text-centered">Response</th>
-            <th class="has-text-centered">Work</th>
-            <th class="has-text-centered">Anon</th>
-            <th class="has-text-centered">Create</th>
-            <th class="has-text-centered">Update</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(proxy, key) in list" v-bind:key="key">
-            <td class="has-text-centered">{{ key }}</td>
-            <td class="has-text-centered">{{ proxy.host }}</td>
-            <td class="has-text-centered">{{ proxy.port }}</td>
-            <td class="has-text-right">{{ proxy.response }}</td>
-            <td class="has-text-centered">{{ proxy.work }}</td>
-            <td class="has-text-centered">{{ proxy.anon }}</td>
-            <td class="has-text-centered">{{ proxy.create }}</td>
-            <td class="has-text-centered">{{ proxy.update }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <!-- <vue-pagination v-if="pagination" :page="page" :allElems="all" :perPage="perPage" @pagination="filter"></vue-pagination> -->
-    </div>
-
+    <vue-table
+      name="Anon"
+      :tableData="list"
+      tableClasses="is-narrow is-striped fullwidth"
+      :headClasses="['', 'is-hidden-mobile', '', 'nowrap']"
+      pagination
+      search
+      fullwidth
+    ></vue-table>
   </div>
 </template>
 
 <script>
+import vtable from '@/elements/Table'
 import request from '@/request'
 
 export default {
-  name: 'work',
-  // components: {
-  //   'vue-pagination': pagination,
-  //   'vue-cell': cell,
-  // },
+  name: 'anon',
+  components: {
+    'vue-table': vtable
+  },
   data () {
     return {
       query: '',

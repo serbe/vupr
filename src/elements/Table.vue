@@ -42,7 +42,7 @@
           <td class="has-text-centered">{{ item.id }}</td>
           <td class="has-text-centered">{{ item.host }}</td>
           <td class="has-text-centered">{{ item.port }}</td>
-          <td class="has-text-right">{{ item.response }}</td>
+          <td class="has-text-centered">{{ item.response }}</td>
           <td class="has-text-centered">{{ item.work }}</td>
           <td class="has-text-centered">{{ item.anon }}</td>
           <td class="has-text-centered">{{ item.create }}</td>

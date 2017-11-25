@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import All from '@/components/All'
+// import All from '@/components/All'
 import Work from '@/components/Work'
 import Anon from '@/components/Anon'
 import Login from '@/components/Login'
@@ -20,12 +20,12 @@ export default new Router({
       component: Home,
       meta: { requiresAuth: true, title: 'Home' }
     },
-    {
-      path: '/all',
-      name: 'all',
-      component: All,
-      meta: { requiresAuth: true, title: 'All' }
-    },
+    // {
+    //   path: '/all',
+    //   name: 'all',
+    //   component: All,
+    //   meta: { requiresAuth: true, title: 'All' }
+    // },
     {
       path: '/work',
       name: 'work',

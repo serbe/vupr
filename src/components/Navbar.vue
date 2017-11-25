@@ -3,8 +3,8 @@
     <nav class="navbar ">
       <div class="navbar-brand">
         <template v-if="user.authenticated">
-          <router-link to="/" class="navbar-item" exact>Прокси</router-link>
-          <router-link to="/all" class="navbar-item">Все</router-link>
+          <router-link to="/" class="navbar-item" exact>Pr</router-link>
+          <!-- <router-link to="/all" class="navbar-item">Все</router-link> -->
           <router-link to="/work" class="navbar-item">Рабочие</router-link>
           <router-link to="/anon" class="navbar-item">Анонимные</router-link>
         </template>

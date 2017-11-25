@@ -1,29 +1,29 @@
 <template>
   <div>
-    <nav class="pagination is-centered" v-if="max > 1" ref="pagination" :class="sizeClass">
+    <nav class="pagination is-centered" v-if="max > 1" ref="pagination" :class="sizeClass" role="navigation" aria-label="pagination">
       <a class="pagination-previous" v-if="value > 1" @click="onClick(value - 1)">Назад</a>
       <a class="pagination-next" v-if="value < max" @click="onClick(value + 1)">Далее</a>
       <ul class="pagination-list">
         <li v-if="value !== 1">
-          <a class="pagination-link" @click="onClick(1)">1</a>
+          <a class="pagination-link" @click="onClick(1)" aria-label="Goto page 1">1</a>
         </li>
         <li v-if="value > 3">
           <span class="pagination-ellipsis">&hellip;</span>
         </li>
         <li v-if="value > 2">
-          <a class="pagination-link" @click="onClick(value - 1)">{{ value - 1 }}</a>
+          <a class="pagination-link" @click="onClick(value - 1)" :aria-label="'Goto page ' + (value - 1)">{{ value - 1 }}</a>
         </li>
         <li>
-          <a class="pagination-link is-current">{{ value }}</a>
+          <a class="pagination-link is-current" :aria-label="'Goto page ' + value" aria-current="page">{{ value }}</a>
         </li>
         <li v-if="value < max - 1">
-          <a class="pagination-link" @click="onClick(value + 1)">{{ value + 1 }}</a>
+          <a class="pagination-link" @click="onClick(value + 1)" :aria-label="'Goto page ' + (value + 1)">{{ value + 1 }}</a>
         </li>
         <li v-if="value < max - 2">
           <span class="pagination-ellipsis">&hellip;</span>
         </li>
         <li v-if="value != max">
-          <a class="pagination-link" @click="onClick(max)">{{ max }}</a>
+          <a class="pagination-link" @click="onClick(max)" :aria-label="'Goto page ' + max">{{ max }}</a>
         </li>
       </ul>
     </nav>

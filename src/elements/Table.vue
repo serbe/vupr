@@ -23,8 +23,8 @@
         </p>
       </div>
     </nav>
-    <vue-pagination v-if="pagination" :page="page" :allElems="all" :perPage="perPage" @pagination="filter"></vue-pagination>
-    <table class="table center-table is-narrow" :class="tableClass">
+    <vue-pagination class="mb1" v-if="pagination" :page="page" :allElems="all" :perPage="perPage" @pagination="filter"></vue-pagination>
+    <table class="table center-table" :class="tableClass">
       <thead>
         <tr>
           <th class="has-text-centered">ID</th>
@@ -50,7 +50,7 @@
         </tr>
       </tbody>
     </table>
-    <vue-pagination v-if="pagination" :page="page" :allElems="all" :perPage="perPage" @pagination="filter"></vue-pagination>
+    <vue-pagination class="mt1" v-if="pagination" :page="page" :allElems="all" :perPage="perPage" @pagination="filter"></vue-pagination>
   </div>
 </template>
 
@@ -166,6 +166,10 @@ export default {
 
 .mb1 {
   margin-bottom: 1rem;
+}
+
+.mt1 {
+  margin-top: 1rem;
 }
 
 /*.fixed_table {*/
